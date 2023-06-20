@@ -10,10 +10,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { useLocalData,sumSpendByLabel } from '../DataManagement';
+import { useLocalData, sumSpendByLabel } from '../DataManagement';
 import { Chartdata } from '../ChartConfig';
-
-
 
 ChartJS.register(
   CategoryScale,
@@ -38,7 +36,7 @@ export default function PieChart() {
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
 
-  const theme = localStorage.getItem('theme') === 'true';
+  const theme = localStorage.getItem('theme') === true;
 
   const options = {
     plugins: {
@@ -46,19 +44,18 @@ export default function PieChart() {
         labels: {
           color: theme ? 'white' : 'black',
           font: {
-            family: "GmarketSansTTFLight",
-          }
-        }
+            family: 'GmarketSansTTFLight',
+          },
+        },
       },
       tooltip: {
         color: theme ? 'white' : 'black',
         bodyFont: {
-          family: "GmarketSansTTFLight",
-        }
-      }
-    }
+          family: 'GmarketSansTTFLight',
+        },
+      },
+    },
   };
-  
 
   return (
     <>

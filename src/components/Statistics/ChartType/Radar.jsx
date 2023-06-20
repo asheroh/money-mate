@@ -26,7 +26,6 @@ ChartJS.register(
   Legend
 );
 
-
 export default function RadarChart() {
   const localData = useLocalData();
   const ReduceLabels = [...new Set(localData.Group)];
@@ -39,8 +38,7 @@ export default function RadarChart() {
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
 
-  const theme = localStorage.getItem('theme') === 'true';
-
+  const theme = localStorage.getItem('theme') === true;
 
   const options = {
     responsive: true,
@@ -50,35 +48,34 @@ export default function RadarChart() {
         beginAtZero: true,
         min: 0,
         ticks: {
-          display:!theme,
+          display: !theme,
           color: theme ? 'white' : 'black',
           font: {
-            family: "GmarketSansTTFLight",
-          }
+            family: 'GmarketSansTTFLight',
+          },
         },
         pointLabels: {
           color: theme ? 'white' : 'black',
           font: {
-            family: "GmarketSansTTFLight",
-          }
-      }
+            family: 'GmarketSansTTFLight',
+          },
+        },
       },
-      
     },
     plugins: {
       legend: {
         labels: {
           color: theme ? 'white' : 'black',
           font: {
-            family: "GmarketSansTTFLight",
-          }
-        }
+            family: 'GmarketSansTTFLight',
+          },
+        },
       },
       tooltip: {
         color: theme ? 'white' : 'black',
         bodyFont: {
-          family: "GmarketSansTTFLight",
-        }
+          family: 'GmarketSansTTFLight',
+        },
       },
     },
   };

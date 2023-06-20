@@ -1,9 +1,28 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  ArcElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useLocalData, sumSpendByLabel } from '../DataManagement';
 import { Chartdata } from '../ChartConfig';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  ArcElement,
+  Tooltip,
+  Legend
+);
 
 export default function LineChart() {
   const localData = useLocalData();
@@ -17,8 +36,7 @@ export default function LineChart() {
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
 
-  const theme = localStorage.getItem('theme') === 'true';
-
+  const theme = localStorage.getItem('theme') === true;
   const options = {
     responsive: true,
     scales: {
