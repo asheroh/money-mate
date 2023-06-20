@@ -15,6 +15,7 @@ export const AccountsContainer = styled.div`
   height: 100vh;
   position: relative;
   background: ${(props) => props.theme.bgColor};
+  overflow: hidden;
 `;
 
 export const SideNavBar = styled.section`
@@ -130,7 +131,7 @@ export const FirstNavigator = styled.button`
   position: absolute;
   top: 100px;
   right: 0;
-  font-family: "GmarketSansTTFLight";
+  font-family: 'GmarketSansTTFLight';
   color: ${(props) =>
     props.currentPage === 0 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -149,7 +150,7 @@ export const SecondNavigator = styled.button`
   position: absolute;
   top: 150px;
   right: 0;
-  font-family: "GmarketSansTTFLight";
+  font-family: 'GmarketSansTTFLight';
   color: ${(props) =>
     props.currentPage === 1 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -168,7 +169,7 @@ export const ThirdNavigator = styled.button`
   position: absolute;
   top: 200px;
   right: 0;
-  font-family: "GmarketSansTTFLight";
+  font-family: 'GmarketSansTTFLight';
   color: ${(props) =>
     props.currentPage === 2 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -293,7 +294,7 @@ export const NewsTextBox = styled.section`
   flex-direction: column;
   justify-content: center;
   padding: 5px;
-  color: ${(props)=>props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const NewsHeaderLine = styled.span`
@@ -302,7 +303,6 @@ export const NewsHeaderLine = styled.span`
   font-family: 'GmarketSansTTFBold';
   font-size: 14px;
   font-weight: 500;
-  
 `;
 
 export const NewsDescription = styled.span`
@@ -347,9 +347,6 @@ export const AccountsSection = styled.section`
   height: 100vh;
   transition: all 0.5s;
 
-  /* 레이아웃 스케치용 border */
-  border: 5px solid brown;
-
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
@@ -363,7 +360,7 @@ export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 30px;
   font-weight: bold;
-  color: ${(props) => props.theme.primaryColor};;
+  color: ${(props) => props.theme.primaryColor};
   margin: 0px 20px 10px 160px;
   padding: 40px 0px 0px 0px;
 `;
@@ -391,17 +388,18 @@ export const AccountsGroupFromTo = styled.div`
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
-    margin: ${(props) => (props.navToggle ? '0 10px 20px 170px' : '0 170px 20px 170px')};
+    margin: ${(props) =>
+      props.navToggle ? '0 10px 20px 170px' : '0 170px 20px 170px'};
   }
   @media (max-height: 450px) or (max-width: 980px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
-    margin : 0px 0px 20px 10px;
+    margin: 0px 0px 20px 10px;
   }
 `;
 
 export const AccountsSorting = styled.p`
   margin: 0px 15px 0px 10px;
-  color: ${(props) => props.theme.textColor}
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const AccountsBtnSearch = styled.button`
@@ -416,9 +414,9 @@ export const AccountsBtnSearch = styled.button`
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? '30%' : '10vw')};
-    }
+  }
   @media (max-height: 450px) or (max-width: 980px) {
-    width: 30px;  
+    width: 30px;
     width: ${(props) => (props.navToggle ? '15%' : '30px')};
   }
 `;
@@ -477,7 +475,7 @@ export const AccountsTableBodyTd = styled.td`
   border-right: 1px solid ${(props) => props.theme.primaryColor};
   //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
-  color: ${(props) => props.theme.textColor}
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const AccountsAmountColorSpending = styled.td`
@@ -500,7 +498,7 @@ export const AccountsAmountColorIncome = styled.td`
 
 export const AccountsBtnClose = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color:${(props) => props.theme.primaryColor};
+  background-color: ${(props) => props.theme.primaryColor};
   color: ${(props) => props.theme.bgColor};
   width: 114px;
   height: 50px;
@@ -512,10 +510,9 @@ export const AccountsBtnClose = styled.button`
     width: ${(props) => (props.navToggle ? '80px' : '114px')};
   }
   @media (max-height: 450px) or (max-width: 980px) {
-    width: 60%
+    width: 60%;
   }
-
-`
+`;
 
 export const EmptyTable = styled.div`
   display: flex;
@@ -523,26 +520,26 @@ export const EmptyTable = styled.div`
   justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.primaryColor};
-`
+`;
 
 export const EmptySpan = styled.span`
-  margin : 20px;
-`
+  margin: 20px;
+`;
 
 export const DatePickerWrapper = styled.div`
-    margin: 0px 0px 0px 20px;
-    width: 200px;
-    height: 50px;
-    color: ${(props) => props.theme.textColor};
+  margin: 0px 0px 0px 20px;
+  width: 200px;
+  height: 50px;
+  color: ${(props) => props.theme.textColor};
 
-    @media all and (max-width: 1280px) {
-        width: ${(props) => (props.navToggle ? '10vw' : '200px')};
-        margin : 0px 0px 0px 20px;
-    }
-    @media (max-height: 450px) or (max-width: 980px) {
-        width: 10vw;
-        margin : 0px 0px 0px 10px;
-    }
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '10vw' : '200px')};
+    margin: 0px 0px 0px 20px;
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 10vw;
+    margin: 0px 0px 0px 10px;
+  }
 `;
 
 export const Group = styled.div`
@@ -553,13 +550,14 @@ export const Group = styled.div`
   margin: 0px 405px 0px 0px;
 
   @media all and (max-width: 1280px) {
-    margin: ${(props) => (props.navToggle ? '0px 10px 0px 10px;' : '0px 405px 0px 0px;')};
+    margin: ${(props) =>
+      props.navToggle ? '0px 10px 0px 10px;' : '0px 405px 0px 0px;'};
   }
   @media (max-height: 450px) or (max-width: 980px) {
-    margin : 0px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
   }
 `;
 
 export const GroupDiv = styled.div`
   margin-top: 15vh;
-`
+`;
