@@ -28,7 +28,7 @@ import PolarAreaChart from './components/Statistics/ChartType/Area';
 import RadarChart from './components/Statistics/ChartType/Radar';
 import BarChart from './components/Statistics/ChartType/Bar';
 
-const AcountsStatistics = ({navToggle}) => {
+const AcountsStatistics = ({ navToggle }) => {
   const userName = localStorage.getItem('username');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -40,14 +40,14 @@ const AcountsStatistics = ({navToggle}) => {
   const handleStartDateChange = (date) => {
     setStartDate(date);
     const formattedStartDate = date ? dayjs(date).format('YYYY-MM-DD') : null;
-    console.log('시작 날짜:', formattedStartDate);
+    // console.log('시작 날짜:', formattedStartDate);
     localStorage.setItem('startDate', formattedStartDate);
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
     const formattedEndDate = date ? dayjs(date).format('YYYY-MM-DD') : null;
-    console.log('종료 날짜:', formattedEndDate);
+    // console.log('종료 날짜:', formattedEndDate);
     localStorage.setItem('endDate', formattedEndDate);
   };
 
@@ -66,20 +66,16 @@ const AcountsStatistics = ({navToggle}) => {
     if (startDate && endDate && endDate < startDate) {
       alert('종료 날짜는 시작 날짜 이후여야 합니다.');
       return;
-    }
-    else if (!startDate&&!endDate) {
+    } else if (!startDate && !endDate) {
       alert('기간을 설정해주세요.');
       return;
-    }
-    else if (!startDate) {
+    } else if (!startDate) {
       alert('시작 날짜를 선택해주세요.');
       return;
-    }
-    else if (!endDate) {
+    } else if (!endDate) {
       alert('종료 날짜를 선택해주세요.');
       return;
-    }
-    else if (!selectedGroup) {
+    } else if (!selectedGroup) {
       alert('그룹을 선택해주세요.');
       return;
     } else if (!selectedChart) {
@@ -87,22 +83,22 @@ const AcountsStatistics = ({navToggle}) => {
       return;
     }
     setShowChart(true);
-    setIsVisible(false);  
+    setIsVisible(false);
   };
 
   const handleClick = () => {
     setShowChart(false);
     setIsVisible(false);
-  }
+  };
 
   return (
     <>
       <Statisticscontainer>
         <StatisticsSection>
           <StatisticsHeader>
-          {navToggle === false && (
-    <StatisticsTitle>{userName}님의 가계부</StatisticsTitle>
-  )}
+            {navToggle === false && (
+              <StatisticsTitle>{userName}님의 가계부</StatisticsTitle>
+            )}
 
             <StatisticsGroupBtn>
               <StatisticsGroupFromTo>
@@ -146,8 +142,12 @@ const AcountsStatistics = ({navToggle}) => {
           </StatisticsHeader>
 
           <Statisticsbody>
-          {isVisible&&<StatisticsMessage navToggle={navToggle}>원하시는 날짜, 그룹, 차트를 선택해주세요.</StatisticsMessage>}
-            <Statisticschart  navToggle={navToggle}>
+            {isVisible && (
+              <StatisticsMessage navToggle={navToggle}>
+                원하시는 날짜, 그룹, 차트를 선택해주세요.
+              </StatisticsMessage>
+            )}
+            <Statisticschart navToggle={navToggle}>
               {showChart && selectedChart === 'Pie' && selectedGroup && (
                 <PieChart selectedGroup={selectedGroup} />
               )}
@@ -164,14 +164,16 @@ const AcountsStatistics = ({navToggle}) => {
                 <RadarChart selectedGroup={selectedGroup} />
               )}
             </Statisticschart>
-            {navToggle === false &&<Statisticstable>
-              {showChart && selectedGroup === 'Group1' && selectedChart && (
-                <ChartTable selectedGroup={selectedGroup} />
-              )}
-              {showChart && selectedGroup === 'Group2' && selectedChart && (
-                <ChartTable selectedGroup={selectedGroup} />
-              )}
-            </Statisticstable>}
+            {navToggle === false && (
+              <Statisticstable>
+                {showChart && selectedGroup === 'Group1' && selectedChart && (
+                  <ChartTable selectedGroup={selectedGroup} />
+                )}
+                {showChart && selectedGroup === 'Group2' && selectedChart && (
+                  <ChartTable selectedGroup={selectedGroup} />
+                )}
+              </Statisticstable>
+            )}
           </Statisticsbody>
         </StatisticsSection>
       </Statisticscontainer>
