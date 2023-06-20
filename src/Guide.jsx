@@ -410,6 +410,7 @@ const Guide = () => {
             </ProposalGridItem3>
             <ProposalGridItem4>
               <ProposalHeader>역할 분담</ProposalHeader>
+              <br />
               <TeamRole>
                 <RoleItem>
                   <FunctionList>오준서</FunctionList>
