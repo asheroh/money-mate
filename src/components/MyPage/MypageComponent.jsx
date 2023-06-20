@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   CategoryDeleteButton,
   HiddenFileInput,
@@ -27,51 +27,12 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-const MypageComponent = ({navToggle}) => {
+const MypageComponent = ({ navToggle }) => {
   // 변수 선언------------------------------------------------
   const userName = localStorage.getItem('username');
   const { themeMode, setThemeMode, category, setCategory } =
     useContext(Context);
   const [newCategory, setNewCategory] = useState('');
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  // Function------------------------------------------------
-  const handleImageUpload = (e) => {
-    let file = e.target.files[0];
-    // 비동기적으로 파일 내용 읽어들이는 객체 선언
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      setSelectedImage(reader.result);
-    };
-    // base64로 이루어진 데이터 반환
-    reader.readAsDataURL(file);
-    console.log(reader.readAsDataURL(file));
-  };
-  // console.log(selectedImage);
-  const handleImageSubmit = () => {
-    // 등록 버튼 클릭 시 처리할 로직을 작성
-    // 예를 들어, 등록된 사진을 서버에 전송하거나 다른 처리를 수행할 수 있음
-
-    // 처리 완료 후 localStorage에서 등록 대기 중인 사진 제거
-    localStorage.removeItem('pendingImage');
-  };
-
-  const handleImageCancel = () => {
-    // 등록 취소 버튼 클릭 시 처리할 로직을 작성
-    // 예를 들어, 등록 대기 중인 사진을 삭제하거나 다른 처리를 수행할 수 있음
-
-    // 처리 완료 후 localStorage에서 등록 대기 중인 사진 제거
-    localStorage.removeItem('pendingImage');
-  };
-
-  const handleImageLoad = () => {
-    // 등록 대기 중인 사진이 localStorage에 있는지 확인
-    const pendingImage = localStorage.getItem('pendingImage');
-    if (pendingImage) {
-      setSelectedImage(pendingImage);
-    }
-  };
 
   const handleThemeLight = () => {
     setThemeMode(false);
@@ -125,7 +86,7 @@ const MypageComponent = ({navToggle}) => {
         <MyPageHeaderSection>
           <MyPageProfileSection>
             <MyPageProfileBox defaultProfile={defaultProfile} />
-            <HiddenFileInput
+            {/* <HiddenFileInput
               type="file"
               accept="image/*"
               id="upload-input"
@@ -133,11 +94,13 @@ const MypageComponent = ({navToggle}) => {
             />
             <MyPageProfileInput htmlFor="upload-input">
               업로드
-            </MyPageProfileInput>
+            </MyPageProfileInput> */}
           </MyPageProfileSection>
           <MyPageRightSection>
             <MyPageInfoBox>
-              <MyPageInfo navToggle={navToggle}>{userName}님의 프로필</MyPageInfo>
+              <MyPageInfo navToggle={navToggle}>
+                {userName}님의 프로필
+              </MyPageInfo>
               <MyPageThemeToggle navToggle={navToggle}>
                 <MypageThemeLight
                   onClick={handleThemeLight}
@@ -153,7 +116,11 @@ const MypageComponent = ({navToggle}) => {
                 </MypageThemeDark>
               </MyPageThemeToggle>
             </MyPageInfoBox>
-            <MyPageCheckList>CHECK LIST</MyPageCheckList>
+            <MyPageCheckList>
+              환영합니다.
+              <br />
+              수입, 지출 관리를 희망하는 카테고리를 추가 및 삭제해보세요.
+            </MyPageCheckList>
           </MyPageRightSection>
         </MyPageHeaderSection>
         <MyPageContentSection>
