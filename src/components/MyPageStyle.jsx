@@ -21,7 +21,9 @@ export const MyPageHeaderSection = styled.section`
   align-items: center;
   gap: 15px;
   padding: 15px;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
+  border-bottom: none;
+  border-radius: 15px 15px 0 0;
 `;
 
 export const MyPageProfileSection = styled.section`
@@ -40,7 +42,6 @@ export const MyPageProfileSection = styled.section`
 export const MyPageProfileBox = styled.section`
   width: 100px;
   height: 100px;
-  border: 1px solid black;
   border-radius: 50%;
   background-image: url(${(props) => props.defaultProfile});
   background-position: center;
@@ -162,7 +163,9 @@ export const MyPageCheckList = styled.section`
   padding: 10px;
   font-size: 12px;
   transition: all 0.3s;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
+  border-radius: 15px;
+  line-height: 2;
 `;
 
 // ---------------------------------------------------------
@@ -175,7 +178,8 @@ export const MyPageContentSection = styled.section`
   align-items: center;
   gap: 15px;
   padding: 15px;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
+  border-radius: 0 0 15px 15px;
 `;
 
 export const MyPageCategoryBox = styled.form`
@@ -220,7 +224,8 @@ export const MyPageCategorySection = styled.section`
   align-content: flex-start;
   gap: 30px;
   padding: 15px;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
+  border-radius: 15px;
   overflow-y: auto;
 `;
 

@@ -651,6 +651,10 @@ export const FunctionGrid = styled.div`
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   padding: 5px;
+  @media all and (max-width: 620px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
 `;
 
 export const FunctionBox = styled.section`
@@ -679,6 +683,36 @@ export const FunctionBox = styled.section`
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
   line-height: 1.8;
   padding: 7px;
+  @media all and (max-width: 620px) {
+    grid-column: ${(props) =>
+      props.num === 1
+        ? '1 / 2'
+        : props.num === 2
+        ? '2 / 3'
+        : props.num === 3
+        ? '1 / 2'
+        : props.num === 4
+        ? '2 / 3'
+        : props.num === 5
+        ? '1 / 2'
+        : props.num === 6
+        ? '2 / 3'
+        : props.num === 7
+        ? '1 / 2'
+        : props.num === 8
+        ? '2 / 3'
+        : ''};
+    grid-row: ${(props) =>
+      props.num <= 2
+        ? '1 / 2'
+        : props.num <= 4
+        ? '2 / 3'
+        : props.num <= 6
+        ? '3 / 4'
+        : props.num <= 8
+        ? '4 / 5'
+        : ''};
+  }
 `;
 
 export const FunctionList = styled.ul`
@@ -701,7 +735,6 @@ export const TeamRole = styled.div`
   height: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 10px;
 `;
