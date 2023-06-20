@@ -38,7 +38,7 @@ export default function PolarAreaChart() {
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
 
-  const theme = localStorage.getItem('theme') === 'true';
+  const theme = localStorage.getItem('theme') === true;
 
   const options = {
     plugins: {
@@ -60,11 +60,11 @@ export default function PolarAreaChart() {
     scales: {
       r: {
         ticks: {
-          display:!theme,
+          display: !theme,
           color: theme ? 'white' : 'black',
           font: {
-            family: "GmarketSansTTFLight",
-          }
+            family: 'GmarketSansTTFLight',
+          },
         },
         pointLabels: {
           display: true,
@@ -72,12 +72,11 @@ export default function PolarAreaChart() {
           color: theme ? 'white' : 'black',
           font: {
             family: 'GmarketSansTTFLight',
-          }
-        }
-      }
+          },
+        },
+      },
     },
-
-    }
+  };
 
   return (
     <>

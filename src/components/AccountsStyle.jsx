@@ -426,7 +426,7 @@ export const AccountsContBody = styled.div`
   // background-color: rgb(33, 236, 169);
   border: 3px solid ${(props) => props.theme.primaryColor};
   height: 450px;
-  overflow: scroll;
+  overflow: auto;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
